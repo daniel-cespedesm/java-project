@@ -33,7 +33,7 @@ pipeline {
     stage ('Running on CentOS'){
       agent {label 'CentOS'}
       steps{
-        sh "wget http://54.157.231.220/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.147.40.92/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 10 20"
       }
     }
@@ -43,8 +43,14 @@ pipeline {
         docker 'openjdk:8u121-jre'
       }
       steps {
-        sh "wget http://54.157.231.220/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.147.40.92/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 20 25"
+      }
+    }
+
+    stage ("Promote to green"){
+      steps{
+        sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/"
       }
     }
 
