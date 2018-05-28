@@ -1,6 +1,7 @@
 public class Rectangle {
 	public int length;
 	public int width;
+	public int nothing;
 
 	public Rectangle(int length, int width){
 		this.length = length;
@@ -15,4 +16,3 @@ public class Rectangle {
 		return 2* (length + width);
 	}
 }
-asdasd
