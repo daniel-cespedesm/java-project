@@ -49,7 +49,7 @@ pipeline {
     }
 
     stage ("Promote to green"){
-      agent {label 'apache'}
+      agent {label 'master'}
       steps{
         sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/"
       }
