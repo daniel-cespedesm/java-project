@@ -69,6 +69,7 @@ pipeline {
       steps {
         echo "Stashing Any Local Changes"
         sh "git stash"
+        sh "git pull origin development"
         echo "Checking Out Development Branch"
         sh "git checkout development"
         echo "Checking Out Development Branch"
