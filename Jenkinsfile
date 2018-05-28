@@ -45,7 +45,7 @@ pipeline {
     stage ('Running on CentOS'){
       agent {label 'CentOS'}
       steps{
-        sh "wget http://54.147.40.92/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.226.84.37/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 10 20"
       }
     }
@@ -58,7 +58,7 @@ pipeline {
         }
       }
       steps {
-        sh "wget http://54.147.40.92/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.226.84.37/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 20 25"
       }
     }
