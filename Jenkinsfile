@@ -53,7 +53,7 @@ pipeline {
     }
 
     stage ("Promote to green"){
-      agent {label 'master'}
+      agent {label 'apache'}
       when {
         branch 'master'
       }
@@ -71,10 +71,8 @@ pipeline {
         sh "git stash"
         echo "Checking Out Development Branch"
         sh "git checkout development"
-        sh "git pull origin development"
         echo "Checking Out Development Branch"
         sh "git checkout master"
-        sh "git pull origin master"
         echo "Merging Development into Master Branch"
         echo "git merge development"
         echo "Pushing to Origin Master"
